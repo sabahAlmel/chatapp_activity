@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Chat from "./components/Chat/Chat.js";
 import Input from "./components/Input/Input.js";
+import { io } from "socket.io-client";
 
 function App() {
   const [username, setUsername] = useState("Current User");
@@ -38,7 +39,7 @@ function App() {
       sender: "user Y", // or "received"
     },
   ]);
-
+  const socket = io("http://localhost:5000");
   // Placeholder for sending message
   const sendMessage = (msg) => {
     // Socket.IO integration will go here
