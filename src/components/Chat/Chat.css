@@ -1,0 +1,33 @@
+.chat-container {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: 400px;
+}
+
+/* ... existing styles ... */
+
+.chat-message {
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 4px;
+  color: #333;
+}
+
+.sent {
+  background: #d1e7dd; /* Light green background for sent messages */
+  text-align: left;
+  margin-left: 50%; /* Align to the right */
+}
+
+.received {
+  background: #e8e5e5; /* Light gray background for received messages */
+  text-align: left;
+  margin-right: 50%; /* Align to the left */
+}

@@ -1,0 +1,25 @@
+.input-form {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input-field {
+  flex-grow: 1;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.send-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #5cb85c;
+  color: white;
+  cursor: pointer;
+}
+
+.send-button:hover {
+  background-color: #4cae4c;
+}
