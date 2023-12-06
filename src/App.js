@@ -39,10 +39,15 @@ function App() {
       sender: "user Y", // or "received"
     },
   ]);
-  const socket = io("http://localhost:5000");
   // Placeholder for sending message
   const sendMessage = (msg) => {
     // Socket.IO integration will go here
+    const socket = io.connect("http://localhost:5000");
+    socket.on("data", (data) => {
+      console.log(data);
+      setMessages((prev) => [...prev, { text: data, sender: "received" }]);
+    });
+    socket.emit("realtime", msg);
     console.log(msg); // For testing
   };
 
