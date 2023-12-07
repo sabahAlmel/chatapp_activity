@@ -7,7 +7,7 @@ function Chat({ messages, username }) {
       {messages.map((msg, index) => (
         <p
           key={index}
-          className={`chat-message ${
+          className={`chat-message ${ 
             msg.sender === username ? "sent" : "received"
           }`}
         >

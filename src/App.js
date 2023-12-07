@@ -1,10 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Chat from "./components/Chat/Chat.js";
 import Input from "./components/Input/Input.js";
 import { io } from "socket.io-client";
+const socket = io.connect("http://localhost:3001");
 
 function App() {
   const [username, setUsername] = useState("Current User");
+
   const [messages, setMessages] = useState([
     {
       text: "Hello",
@@ -39,12 +41,20 @@ function App() {
       sender: "user Y", // or "received"
     },
   ]);
-  const socket = io("http://localhost:5000");
   // Placeholder for sending message
   const sendMessage = (msg) => {
     // Socket.IO integration will go here
     console.log(msg); // For testing
+    socket.emit("send_message", {text: msg, sender: username});
+    setMessages([...messages, {text: msg, sender: username}])
   };
+
+  useEffect(() => {
+    socket.on("recieve_message", (data) => {
+      console.log(data)
+      setMessages([...messages, data]);
+    });
+  }, [socket, sendMessage]);
 
   return (
     <div>
